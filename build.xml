@@ -1,0 +1,61 @@
+<project name="signupv1">
+    <description>My Second Spring + Hibernate project</description>
+
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="lib" location="lib"/>
+	<property name="web" location="web"/>
+
+    <path id="Junit.path">
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="hibernate.path">
+        <fileset dir="lib">
+            <include name="**/*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="classpath.base">
+        <pathelement location="${build}"/>
+        <pathelement location="${src}"/>
+    </path>
+
+    <target name="clean" description="Clean the directories">
+        <delete dir="dist"/>
+        <delete dir="build"/>
+    	<delete dir="war"/>
+    </target>
+
+    <target name="init" depends="clean">
+        <mkdir dir="dist"/>
+        <mkdir dir="build\classes"/>
+    	<mkdir dir="war"/>
+    </target>
+
+    <target name="compile" depends="init">        
+        <javac srcdir="${src}" destdir="${build}\classes">
+        	
+            <classpath refid="classpath.base"/>
+            <classpath refid="hibernate.path"/>
+        </javac>
+    </target>
+
+    <target name="dist" depends="compile" description="Create distribution files">
+    	<copy todir="war">
+    	  <fileset dir="${web}"/>
+    	</copy>
+    	<copy todir="war\WEB-INF\lib">
+    	    	  <fileset dir="${lib}"/>
+    	    	</copy>
+    	<copy todir="war\WEB-INF">
+    	    	    	  <fileset dir="${build}"/>
+    	    	    	</copy>
+        <jar destfile="dist/signupv1.war" basedir="war" />
+       
+    </target>
+
+    
+</project>
