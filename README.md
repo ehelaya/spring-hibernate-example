@@ -1,6 +1,6 @@
 # Spring-Hibernate-example
 
-This is a small example in spring with hibernate. only demonstrate addding a user into am mysql database using hibernate dialect.
+This is a small example in spring with hibernate. only demonstrate adding a user into am mysql database using hibernate dialect.
 ## Usage
 
 The project uses Apache Ant build tool . To create war file run following code
