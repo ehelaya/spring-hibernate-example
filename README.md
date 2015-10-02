@@ -9,4 +9,4 @@ note: edit signup-servlet.xml file for mysql connection details
 * $ ant dist 
 
 copy signupv1.war in dist/ folder into tomcat webapps folder
-goto localhost:<port>/signupv1/ to see user add page.
+goto localhost:8080/signupv1/ to see user add page.
